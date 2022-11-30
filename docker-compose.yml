@@ -1,0 +1,18 @@
+services:
+  app:
+    platform: linux/amd64 # for M1 chip
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: svelte_myapp
+    tty: true
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 5000:5000
+      - 5001:5001
+    networks:
+      - svelte_myapp
+
+networks:
+  svelte_myapp:
