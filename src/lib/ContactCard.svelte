@@ -1,19 +1,28 @@
 <script>
-  export let userName = "User Name";
-  export let jobTitle = "Job Title";
-  export let description = "A short description here.";
-  export let userImage;
+  export let info = {
+    name: "User Name",
+    jobTitle: "Job Title",
+    description: "A short description here.",
+    userImage: "",
+    age: 0,
+  };
+
+  const { name, jobTitle, description, userImage } = info;
 </script>
 
 <div class="border-2 shadow-md rounded-md">
   <div class="h-28 flex gap-2 items-center p-2 ">
-    {#if (userImage)}
-      <img class="w-24 aspect-square bg-stone-400 rounded-md" src={userImage} alt={userName} />
+    {#if userImage}
+      <img
+        class="w-24 aspect-square bg-stone-400 rounded-md"
+        src={userImage}
+        alt={name}
+      />
     {:else}
-      <div class="w-24 aspect-square bg-stone-400 rounded-md" />  
+      <div class="w-24 aspect-square bg-stone-400 rounded-md" />
     {/if}
     <div class="flex flex-col h-full justify-around">
-      <h1 class="text-xl font-bold font-serif">{userName}</h1>
+      <h1 class="text-xl font-bold font-serif">{name}</h1>
       <h2 class="text-lg">{jobTitle}</h2>
     </div>
   </div>
